@@ -1,0 +1,33 @@
+﻿@page
+@model Diskussionsforum.Pages.Profile.EditModel
+@{
+    ViewData["Title"] = "Redigera profilbild";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+@if (TempData["Success"] != null)
+{
+    <div class="alert alert-success">@TempData["Success"]</div>
+}
+
+<form method="post" enctype="multipart/form-data">
+    <div class="mb-3">
+        <label for="ProfilePictureFile" class="form-label">Välj profilbild</label>
+        <input type="file" asp-for="ProfilePictureFile" class="form-control" />
+        <span asp-validation-for="ProfilePictureFile" class="text-danger"></span>
+    </div>
+
+    @if (!string.IsNullOrEmpty(Model.ProfilePicturePath))
+    {
+        <div class="mb-3">
+            <img src="@Model.ProfilePicturePath" alt="Profilbild" style="width:100px; height:100px; border-radius:50%; object-fit:cover;" />
+        </div>
+    }
+
+    <button type="submit" class="btn btn-primary">Spara</button>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

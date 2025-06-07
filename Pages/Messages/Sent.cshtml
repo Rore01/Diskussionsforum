@@ -1,0 +1,26 @@
+﻿@page
+@model Diskussionsforum.Pages.Messages.SentModel
+@{
+    ViewData["Title"] = "Skickade Meddelanden";
+}
+
+<h2>Skickade Meddelanden</h2>
+
+@if (!Model.Messages.Any())
+{
+    <p>Inga skickade meddelanden.</p>
+}
+else
+{
+    <ul class="list-group">
+        @foreach (var msg in Model.Messages)
+        {
+            <li class="list-group-item">
+                <strong>Till:</strong> @msg.ReceiverUserName <br />
+                <strong>Skickat:</strong> @msg.SentAt.ToLocalTime().ToString("g") <br />
+                <strong>Meddelande:</strong><br />
+                @msg.Content
+            </li>
+        }
+    </ul>
+}

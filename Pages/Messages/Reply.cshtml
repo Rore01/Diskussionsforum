@@ -1,0 +1,21 @@
+﻿@page "{id:int}"
+@model ReplyModel
+@{
+    ViewData["Title"] = "Svara på meddelande";
+}
+
+<h2>Svara på meddelande</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="ReceiverId" />
+    <div class="mb-3">
+        <label class="form-label">Till</label>
+        <input type="text" class="form-control" value="@Model.ReceiverUserName" readonly />
+    </div>
+    <div class="mb-3">
+        <label asp-for="Content" class="form-label">Meddelande</label>
+        <textarea asp-for="Content" class="form-control"></textarea>
+        <span asp-validation-for="Content" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-success">Skicka</button>
+</form>

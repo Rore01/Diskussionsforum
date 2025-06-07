@@ -1,0 +1,32 @@
+﻿@page
+@model Diskussionsforum.Pages.Posts.IndexModel
+@{
+    ViewData["Title"] = "Alla inlägg";
+}
+
+<h2>Alla inlägg</h2>
+
+@if (User.Identity?.IsAuthenticated ?? false)
+{
+    <a asp-page="/Posts/Create" class="btn btn-primary mb-3">Skapa nytt inlägg</a>
+}
+
+@if (Model.Posts.Count == 0)
+{
+    <p>Inga inlägg hittades.</p>
+}
+else
+{
+    <div class="list-group">
+        @foreach (var post in Model.Posts)
+        {
+            <div class="list-group-item">
+                <h5>@post.Title</h5>
+                <p>@(post.Content.Length > 100 ? post.Content.Substring(0, 100) + "..." : post.Content)</p>
+                <p><strong>Kategori:</strong> @post.ForumCategory?.Title</p>
+                <p><strong>Skapad:</strong> @post.CreatedAt.ToLocalTime().ToString("g")</p>
+                <a asp-page="Details" asp-route-id="@post.Id" class="btn btn-sm btn-primary">Visa mer</a>
+            </div>
+        }
+    </div>
+}

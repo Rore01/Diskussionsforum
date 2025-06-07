@@ -1,0 +1,137 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using Diskussionsforum.Models
+@inject UserManager<ApplicationUser> UserManager
+@inject SignInManager<ApplicationUser> SignInManager
+
+@{
+    ApplicationUser user = null;
+    string profilePicUrl = "/images/default-profile.png";
+
+    if (User.Identity != null && User.Identity.IsAuthenticated)
+    {
+        user = await UserManager.GetUserAsync(User);
+        if (!string.IsNullOrEmpty(user?.ProfilePictureUrl))
+        {
+            profilePicUrl = Url.Content("~/uploads/" + user.ProfilePictureUrl);
+        }
+    }
+}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Diskussionsforum</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Diskussionsforum.styles.css" asp-append-version="true" />
+</head>
+<body>
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container">
+                <a class="navbar-brand" asp-area="" asp-page="/Index">Diskussionsforum</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Index">Hem</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-area="" asp-page="/Privacy">Integritet</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link text-dark" asp-page="/Posts/Index">Inlägg</a>
+                        </li>
+
+                        @if (User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle text-dark" href="#" id="messagesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Meddelanden
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="messagesDropdown">
+                                    <li><a class="dropdown-item" asp-page="/Messages/Inbox">Inkorg</a></li>
+                                    <li><a class="dropdown-item" asp-page="/Messages/Sent">Skickade</a></li>
+                                </ul>
+                            </li>
+
+                            @if (User.IsInRole("Admin"))
+                            {
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" asp-page="/Admin/Categories">Kategorier</a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" asp-page="/Admin/Reports">Rapporter</a>
+                                </li>
+                            }
+                        }
+                    </ul>
+
+                    <ul class="navbar-nav">
+                        @if (User.Identity != null && User.Identity.IsAuthenticated)
+                        {
+                            <li class="nav-item dropdown">
+                                <a href="#" class="d-flex align-items-center text-decoration-none dropdown-toggle" id="dropdownUser" data-bs-toggle="dropdown" aria-expanded="false">
+                                    <img src="@user.ProfilePictureUrl" alt="Profilbild" class="rounded-circle" width="40" height="40">
+                                </a>
+                                <ul class="dropdown-menu dropdown-menu-end text-small" aria-labelledby="dropdownUser">
+                                    <li class="dropdown-header text-wrap">@user.Email</li>
+                                    <li>
+                                        <a class="dropdown-item" asp-page="/Profile/Edit">Change Profile Picture</a>
+                                    </li>
+                                    <li><hr class="dropdown-divider" /></li>
+                                    <li>
+                                        <form method="post" asp-page="/Account/Logout" class="dropdown-item m-0 p-0">
+                                            <button type="submit" class="btn btn-link dropdown-item">Logga ut</button>
+                                        </form>
+                                    </li>
+                                </ul>
+                            </li>
+                        }
+                        else
+                        {
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Account/Login">Logga in</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" asp-area="" asp-page="/Account/Register">Registrera</a>
+                            </li>
+                        }
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @if (TempData["Success"] != null)
+            {
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    @TempData["Success"]
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Stäng"></button>
+                </div>
+            }
+
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2025 - Diskussionsforum - <a asp-area="" asp-page="/Privacy">Privacy</a>
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+    @await RenderSectionAsync("Scripts", required: false)
+</body>
+</html>

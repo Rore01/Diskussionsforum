@@ -1,0 +1,15 @@
+﻿@page
+@model ProfileModel
+@{
+    ViewData["Title"] = "Din profil";
+}
+
+<h2>Ladda upp profilbild</h2>
+
+<form method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <label>Välj en bild:</label>
+        <input type="file" name="ProfilePicture" class="form-control" />
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Spara</button>
+</form>

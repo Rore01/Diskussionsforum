@@ -1,0 +1,185 @@
+[
+  {
+    "ContainingType": "Diskussionsforum.Controllers.CommentsApiController",
+    "Method": "PostComment",
+    "RelativePath": "api/CommentsApi",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "Diskussionsforum.DTOs.CommentCreateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "Diskussionsforum.DTOs.CommentDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Diskussionsforum.Controllers.ForumApiController",
+    "Method": "GetCategories",
+    "RelativePath": "api/ForumApi/categories",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Diskussionsforum.Controllers.PostsApiController",
+    "Method": "GetAllPosts",
+    "RelativePath": "api/PostsApi",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Diskussionsforum.Controllers.PostsApiController",
+    "Method": "CreatePost",
+    "RelativePath": "api/PostsApi",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "post",
+        "Type": "Diskussionsforum.Models.Post",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Diskussionsforum.Controllers.PostsApiController",
+    "Method": "GetPost",
+    "RelativePath": "api/PostsApi/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Diskussionsforum.Controllers.PostsApiController",
+    "Method": "DeletePost",
+    "RelativePath": "api/PostsApi/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Diskussionsforum.Controllers.PostsApiController",
+    "Method": "AddComment",
+    "RelativePath": "api/PostsApi/{postId}/comments",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "postId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "comment",
+        "Type": "Diskussionsforum.Models.Comment",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Diskussionsforum.Controllers.PostsApiController",
+    "Method": "GetPostsByCategory",
+    "RelativePath": "api/PostsApi/category/{categoryId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "categoryId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Diskussionsforum.Api.Controllers.ReportsApiController",
+    "Method": "GetReports",
+    "RelativePath": "api/ReportsApi",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[Diskussionsforum.Api.Controllers.ReportDto, Diskussionsforum, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "Diskussionsforum.Api.Controllers.ReportsApiController",
+    "Method": "PostReport",
+    "RelativePath": "api/ReportsApi",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "reportDto",
+        "Type": "Diskussionsforum.DTOs.ReportCreateDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "Diskussionsforum.Api.Controllers.ReportsApiController",
+    "Method": "MarkReportHandled",
+    "RelativePath": "api/ReportsApi/mark-handled/{id}",
+    "HttpMethod": "PUT",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  }
+]

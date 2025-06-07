@@ -1,0 +1,115 @@
+is_global = true
+build_property.TargetFramework = net8.0
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = Diskussionsforum
+build_property.RootNamespace = Diskussionsforum
+build_property.ProjectDir = C:\System24\Webutveckling\slutprojekt\2\Diskussionsforum\Diskussionsforum\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
+build_property.RazorLangVersion = 8.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = C:\System24\Webutveckling\slutprojekt\2\Diskussionsforum\Diskussionsforum
+build_property._RazorSourceGeneratorDebug = 
+
+[C:/System24/Webutveckling/slutprojekt/2/Diskussionsforum/Diskussionsforum/Pages/Account/Login.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxMb2dpbi5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/System24/Webutveckling/slutprojekt/2/Diskussionsforum/Diskussionsforum/Pages/Account/Logout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxMb2dvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/System24/Webutveckling/slutprojekt/2/Diskussionsforum/Diskussionsforum/Pages/Account/Register.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWNjb3VudFxSZWdpc3Rlci5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/System24/Webutveckling/slutprojekt/2/Diskussionsforum/Diskussionsforum/Pages/Admin/Categories.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cQ2F0ZWdvcmllcy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/System24/Webutveckling/slutprojekt/2/Diskussionsforum/Diskussionsforum/Pages/Admin/PostDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUG9zdERldGFpbHMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/System24/Webutveckling/slutprojekt/2/Diskussionsforum/Diskussionsforum/Pages/Admin/Reports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcQWRtaW5cUmVwb3J0cy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/System24/Webutveckling/slutprojekt/2/Diskussionsforum/Diskussionsforum/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/System24/Webutveckling/slutprojekt/2/Diskussionsforum/Diskussionsforum/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/System24/Webutveckling/slutprojekt/2/Diskussionsforum/Diskussionsforum/Pages/Messages/Inbox.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVzc2FnZXNcSW5ib3guY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/System24/Webutveckling/slutprojekt/2/Diskussionsforum/Diskussionsforum/Pages/Messages/Reply.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVzc2FnZXNcUmVwbHkuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/System24/Webutveckling/slutprojekt/2/Diskussionsforum/Diskussionsforum/Pages/Messages/Send.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVzc2FnZXNcU2VuZC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/System24/Webutveckling/slutprojekt/2/Diskussionsforum/Diskussionsforum/Pages/Messages/Sent.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcTWVzc2FnZXNcU2VudC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/System24/Webutveckling/slutprojekt/2/Diskussionsforum/Diskussionsforum/Pages/Posts/Create.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUG9zdHNcQ3JlYXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/System24/Webutveckling/slutprojekt/2/Diskussionsforum/Diskussionsforum/Pages/Posts/Delete.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUG9zdHNcRGVsZXRlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/System24/Webutveckling/slutprojekt/2/Diskussionsforum/Diskussionsforum/Pages/Posts/Details.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUG9zdHNcRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/System24/Webutveckling/slutprojekt/2/Diskussionsforum/Diskussionsforum/Pages/Posts/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUG9zdHNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/System24/Webutveckling/slutprojekt/2/Diskussionsforum/Diskussionsforum/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/System24/Webutveckling/slutprojekt/2/Diskussionsforum/Diskussionsforum/Pages/Profile/Edit.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZmlsZVxFZGl0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/System24/Webutveckling/slutprojekt/2/Diskussionsforum/Diskussionsforum/Pages/Profile/Profile.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJvZmlsZVxQcm9maWxlLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/System24/Webutveckling/slutprojekt/2/Diskussionsforum/Diskussionsforum/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/System24/Webutveckling/slutprojekt/2/Diskussionsforum/Diskussionsforum/Pages/Users/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcVXNlcnNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/System24/Webutveckling/slutprojekt/2/Diskussionsforum/Diskussionsforum/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/System24/Webutveckling/slutprojekt/2/Diskussionsforum/Diskussionsforum/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[C:/System24/Webutveckling/slutprojekt/2/Diskussionsforum/Diskussionsforum/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-gricbspoxy

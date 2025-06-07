@@ -1,0 +1,53 @@
+﻿@page "{id:int}"
+@model Diskussionsforum.Pages.Admin.PostDetailsModel
+@{
+    ViewData["Title"] = "Inläggsdetaljer";
+}
+
+<h2>Inläggsdetaljer</h2>
+
+@if (Model.Post != null)
+{
+    <div class="card mb-3">
+        <div class="card-body">
+            <h4 class="card-title">@Model.Post.Title</h4>
+            <h6 class="card-subtitle text-muted">
+                Skapad av @Model.Post.User?.UserName |
+                @Model.Post.CreatedAt.ToLocalTime().ToString("g")
+            </h6>
+            <p class="card-text mt-3">@Model.Post.Content</p>
+            <span class="badge bg-info">Kategori: @Model.Post.ForumCategory?.Title</span>
+        </div>
+    </div>
+
+    @if (Model.Post.Comments != null && Model.Post.Comments.Any())
+    {
+        <h5>Kommentarer</h5>
+        <ul class="list-group mb-3">
+            @foreach (var comment in Model.Post.Comments)
+            {
+                <li class="list-group-item">
+                    <p>@comment.Content</p>
+                    <small class="text-muted">
+                        Av: @comment.User?.UserName |
+                        @comment.CreatedAt.ToLocalTime().ToString("g")
+                    </small>
+                </li>
+            }
+        </ul>
+    }
+    else
+    {
+        <p>Inga kommentarer.</p>
+    }
+
+    <form method="post" asp-page-handler="Delete" onsubmit="return confirm('Är du säker på att du vill ta bort detta inlägg?');">
+        <input type="hidden" name="postId" value="@Model.Post.Id" />
+        <button type="submit" class="btn btn-danger">Ta bort inlägg</button>
+        <a asp-page="/Admin/Reports" class="btn btn-secondary ms-2">Tillbaka till rapporter</a>
+    </form>
+}
+else
+{
+    <div class="alert alert-danger">Inlägg hittades inte.</div>
+}

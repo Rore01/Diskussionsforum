@@ -1,0 +1,50 @@
+﻿@page
+@model Diskussionsforum.Pages.Admin.CategoriesModel
+@{
+    ViewData["Title"] = "Hantera kategorier";
+}
+
+<h2>Hantera kategorier</h2>
+
+@if (!Model.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+        {
+            <div>@error.ErrorMessage</div>
+        }
+    </div>
+}
+
+<form method="post" class="mb-4">
+    <div class="form-group">
+        <label for="Title">Ny kategori</label>
+        <input asp-for="NewCategory.Title" class="form-control" placeholder="Ange kategorinamn" />
+        <span asp-validation-for="NewCategory.Title" class="text-danger"></span>
+    </div>
+    <button type="submit" class="btn btn-primary mt-2">Lägg till</button>
+</form>
+
+<h4>Befintliga kategorier</h4>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Namn</th>
+            <th>Ta bort</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var category in Model.ExistingCategories)
+        {
+            <tr>
+                <td>@category.Title</td>
+                <td>
+                    <form method="post" asp-page-handler="Delete" asp-route-id="@category.Id" onsubmit="return confirm('Är du säker på att du vill ta bort kategorin?')">
+                        <button type="submit" class="btn btn-sm btn-danger">Ta bort</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

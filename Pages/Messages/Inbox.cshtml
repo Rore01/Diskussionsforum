@@ -1,0 +1,38 @@
+﻿@page
+@model InboxModel
+@{
+    ViewData["Title"] = "Inkorg";
+}
+
+<h2>Inkorg</h2>
+
+@if (!Model.Messages.Any())
+{
+    <p>Du har inga mottagna meddelanden.</p>
+}
+else
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Från</th>
+                <th>Meddelande</th>
+                <th>Datum</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var message in Model.Messages)
+            {
+                <tr>
+                    <td>@message.Sender.UserName</td>
+                    <td>@message.Content</td>
+                    <td>@message.SentAt.ToString("g")</td>
+                    <td>
+                        <a asp-page="/Messages/Reply" asp-route-id="@message.Id" class="btn btn-sm btn-primary">Svara</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}

@@ -1,0 +1,70 @@
+﻿@page
+@model Diskussionsforum.Pages.Admin.ReportsModel
+@{
+    ViewData["Title"] = "Rapporterade inlägg";
+}
+
+<h2>Rapporterade inlägg</h2>
+
+@if (!Model.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        Ett fel uppstod vid hantering av rapporten.
+    </div>
+}
+
+<table class="table table-bordered">
+    <thead class="table-light">
+        <tr>
+            <th>Titel</th>
+            <th>Rapporterad av</th>
+            <th>Anledning</th>
+            <th>Datum</th>
+            <th>Status</th>
+            <th>Visa</th>
+            <th>Åtgärder</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var report in Model.Reports)
+        {
+            <tr class="@(report.IsHandled ? "table-success" : "")">
+                <td>@report.PostTitle</td>
+                <td>@report.UserEmail</td>
+                <td>@report.Reason</td>
+                <td>@report.ReportedAt.ToLocalTime().ToString("g")</td>
+                <td>@(report.IsHandled ? "Hanterad" : "Ohanterad")</td>
+                <td>
+                    <a asp-page="/Admin/PostDetails" asp-route-id="@report.PostId" target="_blank" class="btn btn-sm btn-info">
+                        Visa inlägg
+                    </a>
+                </td>
+                <td>
+                    @if (!report.IsHandled)
+                    {
+                        <div class="d-flex gap-2">
+                            <form method="post" asp-page-handler="Delete">
+                                <input type="hidden" name="postId" value="@report.PostId" />
+                                <input type="hidden" name="reportId" value="@report.Id" />
+                                <button type="submit" class="btn btn-sm btn-danger">
+                                    Ta bort & markera
+                                </button>
+                            </form>
+
+                            <form method="post" asp-page-handler="MarkHandled">
+                                <input type="hidden" name="reportId" value="@report.Id" />
+                                <button type="submit" class="btn btn-sm btn-secondary">
+                                    Markera som hanterad
+                                </button>
+                            </form>
+                        </div>
+                    }
+                    else
+                    {
+                        <span class="text-muted">Redan hanterad</span>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

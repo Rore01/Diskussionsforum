@@ -1,0 +1,24 @@
+﻿@page 
+@model Diskussionsforum.Pages.Messages.SendModel
+@{
+    ViewData["Title"] = "Skicka meddelande";
+}
+
+<h2>Skicka meddelande</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="Input.ReceiverId" />
+
+    <div class="mb-3">
+        <label asp-for="Input.Content" class="form-label"></label>
+        <textarea asp-for="Input.Content" class="form-control" rows="4"></textarea>
+        <span asp-validation-for="Input.Content" class="text-danger"></span>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Skicka</button>
+    <a asp-page="/Index" class="btn btn-secondary">Avbryt</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -1,0 +1,20 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Hem";
+}
+
+<h1>Välkommen till diskussionsforum</h1>
+
+@if (User.IsInRole("Admin"))
+{
+    <p>Admin!</p>
+}
+else if (User.IsInRole("User"))
+{
+    <p>Användare.</p>
+}
+else
+{
+    <p>Du är inte inloggad eller saknar roll.</p>
+}
