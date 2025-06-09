@@ -19,7 +19,6 @@ namespace Diskussionsforum.Controllers
             _context = context;
         }
 
-        // POST: api/CommentsApi
         [Authorize]
         [HttpPost]
         public async Task<ActionResult<CommentDto>> PostComment(CommentCreateDto dto)

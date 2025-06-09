@@ -13,12 +13,10 @@ namespace Diskussionsforum
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // ?? 1. Databasanslutning
             var connectionString = builder.Configuration.GetConnectionString("DefaultConnection");
             builder.Services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(connectionString));
 
-            // ?? 2. Identity-konfiguration med ApplicationUser
             builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
             {
                 options.SignIn.RequireConfirmedAccount = false;
@@ -31,15 +29,14 @@ namespace Diskussionsforum
             .AddEntityFrameworkStores<AppDbContext>()
             .AddDefaultTokenProviders();
 
-            // Configure cookies for security (Secure, SameSite, HttpOnly)
+
             builder.Services.ConfigureApplicationCookie(options =>
             {
-                options.Cookie.SecurePolicy = CookieSecurePolicy.Always;  // Cookie sent only over HTTPS
-                options.Cookie.SameSite = SameSiteMode.Strict;            // Prevent CSRF
-                options.Cookie.HttpOnly = true;                           // Not accessible via JS
+                options.Cookie.SecurePolicy = CookieSecurePolicy.Always;  
+                options.Cookie.SameSite = SameSiteMode.Strict;            
+                options.Cookie.HttpOnly = true;                           
             });
 
-            // Configure antiforgery cookies similarly
             builder.Services.AddAntiforgery(options =>
             {
                 options.Cookie.SecurePolicy = CookieSecurePolicy.Always;
@@ -47,19 +44,15 @@ namespace Diskussionsforum
                 options.Cookie.HttpOnly = true;
             });
 
-            // 3. Razor Pages
             builder.Services.AddRazorPages();
 
-            // 4. HttpContext & HttpClient (för API-anrop med cookies)
             builder.Services.AddHttpContextAccessor();
             builder.Services.AddHttpClient("api")
                 .ConfigurePrimaryHttpMessageHandler(() => new HttpClientHandler
                 {
-                    UseCookies = false // Important: we’ll attach cookies manually
+                    UseCookies = false 
                 });
 
-
-            // 5. API + Swagger
             builder.Services.AddControllers()
                 .AddJsonOptions(options =>
                 {
@@ -73,7 +66,6 @@ namespace Diskussionsforum
 
             var app = builder.Build();
 
-            // ? 6. Skapa roller och admin vid start
             using (var scope = app.Services.CreateScope())
             {
                 var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
@@ -82,7 +74,6 @@ namespace Diskussionsforum
                 CreateRolesAndAdminUser(roleManager, userManager).GetAwaiter().GetResult();
             }
 
-            // ?? 7. Middleware-pipeline
             if (!app.Environment.IsDevelopment())
             {
                 app.UseExceptionHandler("/Error");
@@ -108,7 +99,6 @@ namespace Diskussionsforum
             app.Run();
         }
 
-        // ?? Skapa Admin-användare och roller om de inte finns
         private static async Task CreateRolesAndAdminUser(RoleManager<IdentityRole> roleManager, UserManager<ApplicationUser> userManager)
         {
             string[] roles = { "Admin", "User" };
@@ -141,7 +131,6 @@ namespace Diskussionsforum
                 }
                 else
                 {
-                    // Throw error so you know if admin creation fails
                     throw new Exception("Kunde inte skapa admin-användaren: " + string.Join(", ", result.Errors.Select(e => e.Description)));
                 }
             }

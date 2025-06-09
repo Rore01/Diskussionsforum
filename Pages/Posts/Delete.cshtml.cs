@@ -59,7 +59,6 @@ namespace Diskussionsforum.Pages.Posts
             if (post.UserId != currentUserId && !isAdmin)
                 return Forbid();
 
-            // ✅ Manually attach the auth cookie
             var authCookie = _httpContextAccessor.HttpContext?.Request.Cookies[".AspNetCore.Identity.Application"];
             var request = new HttpRequestMessage(HttpMethod.Delete, $"https://localhost:7178/api/PostsApi/{id}");
             request.Headers.Add("Cookie", $".AspNetCore.Identity.Application={authCookie}");

@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Diskussionsforum.Models;
-using Diskussionsforum.Data; // This is where AppDbContext likely lives
+using Diskussionsforum.Data;
 
 
 public class InboxModel : PageModel

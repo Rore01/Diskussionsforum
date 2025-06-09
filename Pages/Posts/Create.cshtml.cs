@@ -25,7 +25,6 @@ namespace Diskussionsforum.Pages.Posts
 
         public List<SelectListItem> Categories { get; set; } = new();
 
-        // Input model to help with validation binding
         public class PostInputModel
         {
             [Required(ErrorMessage = "Titel krävs")]

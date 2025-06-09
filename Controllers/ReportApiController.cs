@@ -19,7 +19,6 @@ namespace Diskussionsforum.Api.Controllers
             _context = context;
         }
 
-        // GET: api/ReportsApi
         [HttpGet]
         [Authorize(Roles = "Admin")]
         public async Task<ActionResult<IEnumerable<ReportDto>>> GetReports()
@@ -44,7 +43,6 @@ namespace Diskussionsforum.Api.Controllers
             return Ok(reports);
         }
 
-        // POST: api/ReportsApi
         [HttpPost]
         public async Task<IActionResult> PostReport(ReportCreateDto reportDto)
         {
@@ -71,7 +69,6 @@ namespace Diskussionsforum.Api.Controllers
             return Ok();
         }
 
-        // PUT: api/ReportsApi/mark-handled/5
         [HttpPut("mark-handled/{id}")]
         [Authorize(Roles = "Admin")]
         public async Task<IActionResult> MarkReportHandled(int id)

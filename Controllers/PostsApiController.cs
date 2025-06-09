@@ -22,7 +22,6 @@ namespace Diskussionsforum.Controllers
             _userManager = userManager;
         }
 
-        // GET api/posts
         [HttpGet]
         public async Task<IActionResult> GetAllPosts()
         {
@@ -57,7 +56,6 @@ namespace Diskussionsforum.Controllers
             return Ok(postDtos);
         }
 
-        // GET api/posts/category/5
         [HttpGet("category/{categoryId}")]
         public async Task<IActionResult> GetPostsByCategory(int categoryId)
         {
@@ -99,7 +97,6 @@ namespace Diskussionsforum.Controllers
             return Ok(postDtos);
         }
 
-        // GET api/posts/5
         [HttpGet("{id}")]
         public async Task<IActionResult> GetPost(int id)
         {
@@ -136,7 +133,6 @@ namespace Diskussionsforum.Controllers
             return Ok(postDto);
         }
 
-        // POST api/posts
         [Authorize]
         [HttpPost]
         public async Task<IActionResult> CreatePost([FromBody] Post post)
@@ -169,7 +165,6 @@ namespace Diskussionsforum.Controllers
             return CreatedAtAction(nameof(GetPost), new { id = post.Id }, post);
         }
 
-        // DELETE api/posts/5
         [HttpDelete("{id}")]
         [Authorize]
         public async Task<IActionResult> DeletePost(int id)
@@ -190,7 +185,6 @@ namespace Diskussionsforum.Controllers
             return NoContent();
         }
 
-        // POST api/posts/5/comments
         [Authorize]
         [HttpPost("{postId}/comments")]
         public async Task<IActionResult> AddComment(int postId, Comment comment)

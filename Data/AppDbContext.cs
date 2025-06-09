@@ -21,7 +21,7 @@ namespace Diskussionsforum.Data
         {
             base.OnModelCreating(modelBuilder);
 
-            // Validera längd på profilbilds-URL
+
             modelBuilder.Entity<ApplicationUser>()
                 .Property(u => u.ProfilePictureUrl)
                 .HasMaxLength(256);

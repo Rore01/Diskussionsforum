@@ -23,7 +23,5 @@ namespace Diskussionsforum.Controllers
             var categories = await _context.ForumCategories.ToListAsync();
             return Ok(categories);
         }
-
-        // Här kan du lägga till fler API-metoder för inlägg, kommentarer etc.
     }
 }

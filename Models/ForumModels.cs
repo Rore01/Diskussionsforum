@@ -31,11 +31,11 @@ namespace Diskussionsforum.Models
 
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
-        public string UserId { get; set; } = string.Empty;  // FK till AspNetUsers
+        public string UserId { get; set; } = string.Empty;
         public ApplicationUser? User { get; set; } = null!;
 
         [Required(ErrorMessage = "Välj en kategori")]
-        public int? ForumCategoryId { get; set; }              // FK till kategori
+        public int? ForumCategoryId { get; set; }
         public ForumCategory ForumCategory { get; set; } = null!;
 
         public List<Comment> Comments { get; set; } = new();
@@ -49,7 +49,7 @@ namespace Diskussionsforum.Models
         public string Content { get; set; } = string.Empty;
         public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
 
-        public string UserId { get; set; } = string.Empty;  // FK till User
+        public string UserId { get; set; } = string.Empty;
         public ApplicationUser? User { get; set; }
 
         public int PostId { get; set; }
@@ -87,7 +87,7 @@ namespace Diskussionsforum.Models
         public int PostId { get; set; }
         public Post Post { get; set; } = null!;
 
-        public string UserId { get; set; } = string.Empty;  // FK till den som rapporterat
+        public string UserId { get; set; } = string.Empty;
         public ApplicationUser User { get; set; } = null!;
 
         public string Reason { get; set; } = string.Empty;

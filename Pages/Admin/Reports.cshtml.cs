@@ -30,7 +30,6 @@ namespace Diskussionsforum.Pages.Admin
             Reports = await _httpClient.GetFromJsonAsync<List<ReportDto>>("https://localhost:7178/api/ReportsApi");
         }
 
-        // Called when admin clicks "Delete Post"
         public async Task<IActionResult> OnPostDeleteAsync(int postId, int reportId)
         {
             AttachAuthCookie();
@@ -39,7 +38,6 @@ namespace Diskussionsforum.Pages.Admin
 
             if (response.IsSuccessStatusCode)
             {
-                // Mark report as handled after deleting the post
                 await _httpClient.PutAsync($"https://localhost:7178/api/ReportsApi/mark-handled/{reportId}", null);
             }
             else
@@ -50,7 +48,6 @@ namespace Diskussionsforum.Pages.Admin
             return RedirectToPage();
         }
 
-        // Called when admin just wants to mark a report handled
         public async Task<IActionResult> OnPostMarkHandledAsync(int reportId)
         {
             AttachAuthCookie();
@@ -65,7 +62,6 @@ namespace Diskussionsforum.Pages.Admin
             return RedirectToPage();
         }
 
-        // Helper method to attach auth cookie to HttpClient headers
         private void AttachAuthCookie()
         {
             var cookie = _httpContextAccessor.HttpContext?.Request.Cookies[".AspNetCore.Identity.Application"];

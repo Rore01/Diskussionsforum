@@ -63,7 +63,6 @@ namespace Diskussionsforum.Pages.Posts
                 return Page();
             }
 
-            // Attach auth cookie
             var cookie = _httpContextAccessor.HttpContext?.Request.Cookies[".AspNetCore.Identity.Application"];
             if (!string.IsNullOrEmpty(cookie))
             {
@@ -101,7 +100,6 @@ namespace Diskussionsforum.Pages.Posts
                 return Page();
             }
 
-            // Attach auth cookie
             var cookie = _httpContextAccessor.HttpContext?.Request.Cookies[".AspNetCore.Identity.Application"];
             if (!string.IsNullOrEmpty(cookie))
             {

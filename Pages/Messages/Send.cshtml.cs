@@ -69,7 +69,7 @@ namespace Diskussionsforum.Pages.Messages
             await _context.SaveChangesAsync();
 
             TempData["Success"] = "Meddelande skickat!";
-            return RedirectToPage("/Index"); // or wherever you want to redirect
+            return RedirectToPage("/Index");
         }
     }
 }
